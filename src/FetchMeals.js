@@ -16,6 +16,16 @@ const addMeal = (title, setTitle, setMeal) => {
     
 }
 
+
+const deleteMeal = (_id, setMeal) => {
+    axios.post(`https://meal-plan-zkhb.onrender.com/deleteMeal`, {_id})
+    .then((data)=> {
+        console.log(data)
+        getAllMeals(setMeal)
+
+    })
+}
+
 const editMeal = (mealId, title, setMeal, setTitle, setEditing) => {
     axios.post(`https://meal-plan-zkhb.onrender.com/editMeal`, {_id: mealId, title })
     .then((data)=> {
@@ -26,13 +36,4 @@ const editMeal = (mealId, title, setMeal, setTitle, setEditing) => {
 
     })
 }
-const deleteMeal = (_id, setMeal) => {
-    axios.post(`https://meal-plan-zkhb.onrender.com/deleteMeal`, {_id})
-    .then((data)=> {
-        console.log(data)
-        
-        getAllMeals(setMeal)
-
-    })
-}
-export {getAllMeals, addMeal, editMeal, deleteMeal};
+export {getAllMeals, addMeal, deleteMeal, editMeal};

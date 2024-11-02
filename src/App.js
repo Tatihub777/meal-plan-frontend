@@ -29,7 +29,7 @@ function App() {
     type="text" 
     placeholder="add a meal"
     value = {title}
-    onChange = {(e) => setTitle(console.log(e.target.value))}
+    onChange = {e => setTitle(e.target.value)}
     /> 
     <button onClick =
     {editing ? () => editMeal(mealId, title, setMeal, setTitle, setEditing) : () => addMeal(title, setTitle, setMeal) }>
